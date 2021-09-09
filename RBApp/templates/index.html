@@ -1,0 +1,513 @@
+{% load static %}
+{% block headerinclude %}
+  <!-- Links and Style (CSS) -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'RBApp/css/style.css'%}" />
+	<script src="{% static 'RBApp/js/jquery.min.js' %}"></script>
+	<link rel="icon" href="" />
+    <title>Red Bird</title>
+{% endblock headerinclude %}
+
+{% block footerinclude %}
+	<script src="{% static 'RBApp/js/bootstrap.min.js'%}"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="{% static 'RBApp/js/custom-general.js'%}"></script>
+    
+{% endblock footerinclude %}
+
+{% block content %}
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
+        <button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"> <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item active"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active"> <a class="nav-link" href="/index">Today's Menu</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
+                    </li>
+                </ul> <a href="/login"
+                class="btn btn-outline-dark">Login</a>
+            </div>
+    </nav>
+    
+    <div class="block hero1 my-auto" style="background-image:url(https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);">
+            <div class="container-fluid text-center">
+                 <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000"
+                data-aos-offset="0">Red Bird</h1>
+                <p class="lead text-white" data-aos="fade-up" data-aos-duration="1000"
+                data-aos-delay="600">We are closed for the moment, but we will still deliver food at your place!</p>
+                <a
+                href="#menu" class="btn-text lead d-inline-block text-white border-top border-bottom mt-4 pt-1 pb-1"
+                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200">View Today's Menu</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="maincontent">
+            <div class="container">
+                <section id="menu">
+                    <div class="block menu1">
+                        <div class="buttons-container"> <a href="#" class="button button--is-active" data-target="Originals">Originals</a>
+                            <a href="#" class="button" data-target="Bundles">Bundles</a> 
+                            <a href="#" class="button" data-target="BreakfastMeals">Breakfast Meals</a> 
+                            <a href="#" class="button" data-target="Beverages">Beverages</a>  
+                            <a href="#" class="button" data-target="Desserts">Desserts</a> 
+                            <a href="#" class="button" data-target="Extra">Extra</a> 
+                        </div>
+                        <!-- Start Pizza Menu -->
+                        <div class="menu menu--is-visible" id="Originals" data-aos="fade-up">
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5"> 
+                                    <img class="product-img" src="{% static 'RBApp/img/1.Signature Fried Chicken Meal/1pc Red Bird Fried Chicken w Rice.jpg' %}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Red Bird Fried Chicken w/ Rice (1 pc.)</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$15</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="1" data-name="Red Bird Fried Chicken w/ Rice (1 pc.)" data-price="15" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/1.Signature Fried Chicken Meal/1pc Red Bird Fried Chicken w Rice.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/1.Signature Fried Chicken Meal/2pc Red Bird Fried Chicken w Rice.jpg' %}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Red Bird Fried Chicken w/ Rice (2 pcs.)</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$25</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="2" data-name="Red Bird Fried Chicken w/ Rice (2 pcs.)" data-price="25" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/1.Signature Fried Chicken Meal/2pc Red Bird Fried Chicken w Fries.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/1.Signature Fried Chicken Meal/2pc Red Bird Fried Chicken w Fries.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Red Bird Fried Chicken w/ Fries (2pcs.)</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$20</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="3" data-name="Red Bird Fried Chicken w/ Fries (2pcs.)" data-price="20" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/1.Signature Fried Chicken Meal/2pc Red Bird Fried Chicken w Fries.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/1.Signature Fried Chicken Meal/6pc Red Bird Fried Chicken w Waffle.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Red Bird Fried CHicken w/ Waffle (6 pcs.)</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Red Bird Fried CHicken w/ Waffle (6 pcs.)" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/1.Signature Fried Chicken Meal/6pc Red Bird Fried Chicken w Waffle.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Pizza Menu -->
+                        <!-- Start Bundles Menu -->
+                        <div class="menu" id="Bundles" data-aos="fade-up">
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/2.Crave in a Box/6pc Red Bird Fried Chicken.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Red Bird Fried CHicken w/ Waffle (6 pcs.)</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Red Bird Fried CHicken w/ Waffle (6 pcs.)" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/2.Crave in a Box/6pc Red Bird Fried Chicken.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/2.Crave in a Box/Party Mix 1.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Party Mix 1</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Party Mix 1" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/2.Crave in a Box/Party Mix 1.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/2.Crave in a Box/Party Mix 2.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Party Mix 2</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Party Mix 2" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/2.Crave in a Box/Party Mix 2.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                    
+                        </div>
+                        <!-- End Bundles Menu -->
+                        <!-- Start Breakfast Menu -->
+                        <div class="menu" id="BreakfastMeals" data-aos="fade-up">
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/3.Breakfaster/Cheezy Sausage Meal.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Cheezy Sausage Meal</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Cheezy Sausage Meal" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/3.Breakfaster/Cheezy Sausage Meal.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/3.Breakfaster/Crunchy Chicken Nuggets.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Crunchy Chicken Nuggets</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Crunchy Chicken Nuggets" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/3.Breakfaster/Crunchy Chicken Nuggets.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/3.Breakfaster/Red Bird Waffle Breakfast.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Red Bird Waffle Breakfast</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Red Bird Waffle Breakfast" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/3.Breakfaster/Red Bird Waffle Breakfast.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/3.Breakfaster/Red Bird Waffle Solo.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Red Bird Waffle Solo</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Red Bird Waffle Solo" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/3.Breakfaster/Red Bird Waffle Solo.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/3.Breakfaster/Smokey Bacon Meal.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Smokey Bacon Meal</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Smokey Bacon Meal" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/3.Breakfaster/Smokey Bacon Meal.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>  
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/3.Breakfaster/Zesty Corned Beef.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                         <h3 class="item__title">Zesty Corned Beef</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Zesty Corned Beef" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/3.Breakfaster/Zesty Corned Beef.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                    
+                    
+                        </div>
+                        <!-- End Breakfast Menu -->
+
+
+                        <!-- Start Beverages Menu -->
+                        <div class="menu" id="Beverages" data-aos="fade-up">
+                            
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/6.Beverages/Natures Spring Mineral Water.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Natures Spring Mineral Water</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Natures Spring Mineral Water" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/6.Beverages/Natures Spring Mineral Water.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/6.Beverages/Coke mismo.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Coke Mismo</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Coke Mismo" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/6.Beverages/Coke mismo.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/6.Beverages/Coke.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Coke</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Coke" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/6.Beverages/Coke.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/6.Beverages/Sprite.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Sprite</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Sprite" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/6.Beverages/Sprite.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/6.Beverages/Canada Dry.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Canada Dry</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Canada Dry" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/6.Beverages/Canada Dry.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/6.Beverages/Cold Malted Chocolate.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Cold Malted Chocolate</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Cold Malted Chocolate" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/6.Beverages/Cold Malted Chocolate.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/6.Beverages/Hot Malted Chocoloate.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Hot Malted Chocolate</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Hot Malted Chocolate" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/6.Beverages/Hot Malted Chocoloate.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/6.Beverages/Watson Ginger Ale.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Watson Ginger Ale</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Watson Ginger Ale" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/6.Beverages/Watson Ginger Ale.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                    </div>
+                        <!-- End Beverages Block -->
+
+                        <!-- Start Dessert Menu -->
+                        <div class="menu" id="Desserts" data-aos="fade-up">
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/5.Dessert/Powdered Waffle.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Powdered Waffle</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Powdered Waffle" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/5.Dessert/Powdered Waffle.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Dessert Block -->
+
+
+                          <!-- Start Extra Menu -->
+                          <div class="menu" id="Extra" data-aos="fade-up">
+                            <div class="item row align-items-center">
+                                <div class="col-sm-3 pr-5">
+                                    <img class="product-img" src="{% static 'RBApp/img/4.Extra/Rice.jpg '%}">
+                                </div>
+                                <div class="details col-sm-9">
+                                    <div class="item__header">
+                                            <h3 class="item__title">Extra Rice</h3>
+                                        <span class="item__dots"></span>
+                                        <span class="item__price">$17</span>
+                                    </div>
+                                    <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
+                                        officia eaque nobis ut.</p>
+                                    <button class="btn btn-sm btn-outline-primary my-cart-btn"
+                                    data-id="4" data-name="Extra Rice" data-price="17" data-quantity="1"
+                                    data-image="{% static 'RBApp/img/4.Extra/Rice.jpg '%}">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Dessert Block -->
+
+                    </div>
+                    <!-- End block -->
+              
+                    <script src="{% static 'RBApp/js/mycart.js'%}"></script>
+                    <script src="{% static 'RBApp/js/mycart-custom.js'%}"></script>
+                </section>
+            </div>
+        </div>
+
+        
+        <div class="nav-item my-cart-icon">
+            <img src="{% static 'RBApp/img/cart.svg' %}" style="width:20px;"> <span class="badge badge-notify my-cart-badge"> </span>
+            </div>
+            <footer class="block footer1 footer text-center">
+            <p>&copy; Reyes, Adrian Paul N. CSIT327 F1-C1 AY 2021 - 2022</p>
+        </footer>
+
+
+        <script>
+            AOS.init();
+        </script>
+
+       
+{% endblock content %}

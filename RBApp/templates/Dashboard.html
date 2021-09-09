@@ -1,0 +1,118 @@
+{% load static %}
+{% block headerinclude %}
+  <!-- Links and Style (CSS) -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'RBApp/css/style.css'%}" />
+	<script src="{% static 'RBApp/js/jquery.min.js' %}"></script>
+	<link rel="icon" href="" />
+    <title>Red Bird</title>
+{% endblock headerinclude %}
+
+{% block footerinclude %}
+	<script src="{% static 'RBApp/js/bootstrap.min.js'%}"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="{% static 'RBApp/js/custom-general.js'%}"></script>
+    
+{% endblock footerinclude %}
+
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
+        <button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"> <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="/index">Today's Menu</a>
+                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
+                    </li>
+                </ul> <a href="/login"
+                class="btn btn-outline-dark">Login</a>
+            </div>
+    </nav>
+    <style>
+    .cover {
+        background-image: url(https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1650&q=80);
+        background-size: cover;
+        background-repeat: no-repeat
+    }
+    
+    body {
+      
+
+        min-height: 100vh;
+        overflow-x: hidden
+    }</style>
+                                    </head>
+                                    <body oncontextmenu='return false' class='snippet-body'>
+                                    <div class="row py-5 px-4">
+        <div class="col-md-5 mx-auto">
+            <!-- Profile widget -->
+            <div class="bg-white shadow rounded overflow-hidden">
+                <div class="px-4 pt-0 pb-4 cover">
+                    <div class="media align-items-end profile-head">
+                        <div class="profile mr-3"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-light btn-sm btn-block">Edit profile</a></div>
+                        <div class="media-body mb-5 text-white">
+                            <h4 class="mt-0 mb-0">Adrian Paul Reyes</h4>
+                            <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Cebu City</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-light p-4 d-flex justify-content-end text-center">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
+                        </li>
+                        <li class="list-inline-item">
+                            <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
+                        </li>
+                        <li class="list-inline-item">
+                            <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
+                        </li>
+                    </ul>
+                </div>
+                <div class="px-4 py-3">
+                    <h5 class="mb-0">About Our Project</h5>
+                    <div class="p-4 rounded shadow-sm bg-light">
+                        <p class="font-italic mb-0">Red
+                            Bird is a food delivery service that connects the Red
+                            Bird restaurant to the people. When you place an order with Red
+                            Bird , we receive it and assign a delivery partner to pick up the order from the restaurant to bring it to you.</p>
+                      
+                    </div>
+                </div>
+                <div class="py-4 px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="img-fluid rounded shadow-sm"></div>
+                        <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://images.unsplash.com/photo-1626082896492-766af4eb6501?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZyaWVkJTIwY2hpY2tlbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" class="img-fluid rounded shadow-sm"></div>
+                        <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://images.unsplash.com/photo-1585703900468-13c7a978ad86?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                        <div class="col-lg-6 pl-lg-1"><img src="https://images.unsplash.com/photo-1594254916028-742dedb72062?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZyaWVkJTIwY2hpY2tlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" class="img-fluid rounded shadow-sm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="block footer1 footer text-center">
+        <p>&copy; Adrian Paul Reyes CSIT327 F1-C1 AY 2021 - 2022</p>
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+   
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'></script>
+                            
+        
+{% endblock content %}
