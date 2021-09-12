@@ -18,7 +18,7 @@ from django.urls import path
 from RBApp.urls import urlpatterns as RBAPP_URLS
 
 
-appname="RBApp"
+app_name="RBApp"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
