@@ -1,6 +1,7 @@
 from django.http import request
 from django.shortcuts import render
 from django.views.generic import View
+from .models import Dish
 # Create your views here.
 
 class MyIndexView(View):
@@ -23,3 +24,7 @@ class MyAboutView(View):
 class MyDashboardView(View):
      def get(self,request):
         return render(request, 'Dashboard.html', {})
+
+def DisplayDashboard(request):
+    dish_list = Dish.objects.all()
+    return render(request, 'Dashboard.html', {'dish_list': dish_list})

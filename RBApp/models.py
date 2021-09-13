@@ -22,8 +22,6 @@ class MenuType(models.Model):
     description = models.CharField(max_length=255)
 
 
-
-
 class Dish(models.Model):
     dish_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
