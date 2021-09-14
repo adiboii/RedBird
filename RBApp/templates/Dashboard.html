@@ -19,38 +19,150 @@
 {% endblock footerinclude %}
 
 {% block content %}
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
-        <button
-        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"> <a class="nav-link" href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="/index">Today's Menu</a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
-                    </li>
-                </ul> <a href="/login"
-                class="btn btn-outline-dark">Login</a>
-            </div>
-</nav>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
+            <button
+            class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"> <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="/index">Today's Menu</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
+                        </li>
+                    </ul> <a href="/login"
+                    class="btn btn-outline-dark">Login</a>
+                </div>
+    </nav>
+    <div class="maincontent">
+        <div class="container">
+            <section id="menu">
+                <div class="container">
+                    <div class="buttons-container"> <a href="#" class="button button--is-active" data-target="Users">Users</a>
+                        <a href="#" class="button" data-target="Dishes">Dishes</a> 
+                        <a href="#" class="button" data-target="MenuType">Menu Types</a> 
+                        <a href="#" class="button" data-target="Orders">Orders</a>  
 
-    {{dish_list}}
-    <footer class="block footer1 footer text-center">
-        <p>&copy; Gabutan, Mel Jefferson T. | Reyes, Adrian Paul N. </p>
-        <p>CSIT327 F1-C1 AY 2021 - 2022</p>
-    </footer>
+                    </div>
+                        <div class="menu menu--is-visible" id="Users" data-aos="fade-up">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Phone Number</th>
+                                        <th scope="col">Street</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">Country</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for user in users %}
+                                            <tr>
+                                            <td>{{user.username}}</td>
+                                            <td>{{user.first_name}}</td>
+                                            <td>{{user.last_name}}</td>
+                                            <td>{{user.phone_number}}</td>
+                                            <td>{{user.street}}</td>
+                                            <td>{{user.city}}</td>
+                                            <td>{{user.country}}</td>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>    
+                        </div>
 
-    <script>
-        AOS.init();
-    </script>
-   
-    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
-    <script type='text/javascript'></script>
+                        <div class="menu " id="Dishes" data-aos="fade-up">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Dish ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for dish in dishes %}
+                                            <tr>
+                                            <td>{{dish.dish_id}}</td>
+                                            <td>{{dish.name}}</td>
+                                            <td>{{dish.price}}</td>
+                                            <td>{{dish.description}}</td> 
+                                        {% endfor %}
+                                    </tbody>
+                                </table>    
+                        </div>
+
+                            <div class="menu " id="Dishes" data-aos="fade-up">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Dish ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for dish in dishes %}
+                                            <tr>
+                                            <td>{{dish.dish_id}}</td>
+                                            <td>{{dish.name}}</td>
+                                            <td>{{dish.price}}</td>
+                                            <td>{{dish.description}}</td> 
+                                        {% endfor %}
+                                    </tbody>
+                                </table>    
+                        </div>
+                        
+                        <div class="menu " id="MenuType" data-aos="fade-up">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Type ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for type in menutype %}
+                                            <tr>
+                                            <td>{{type.type_id}}</td>
+                                            <td>{{type.name}}</td>
+                                            <td>{{type.description}}</td>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>    
+                        </div>
+
+
+                    </div>
+                
+            </section>
+        </div>
+    </div>
+    
+
+    <script src="{% static 'RBApp/js/mycart.js'%}"></script>
+    <script src="{% static 'RBApp/js/mycart-custom.js'%}"></script>
+        
+        <div class="nav-item my-cart-icon">
+            <img src="{% static 'RBApp/img/cart.svg' %}" style="width:20px;"> <span class="badge badge-notify my-cart-badge"> </span>
+        </div>
+        <footer class="block footer1 footer text-center">
+            <p>&copy; Gabutan, Mel Jefferson T. | Reyes, Adrian Paul N. </p>
+            <p>CSIT327 F1-C1 AY 2021 - 2022</p>
+        </footer>
+
+
+        <script>
+            AOS.init();
+        </script>
                             
         
 {% endblock content %}

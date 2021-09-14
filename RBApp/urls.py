@@ -25,6 +25,5 @@ urlpatterns = [
     path('login', views.MyLoginView.as_view(), name="my_login_view"),
     path('signup', views.MySignUpView.as_view(), name="my_signup_view"),
     path('aboutus', views.MyAboutView.as_view(), name="my_about_view"),
-    path('dashboard', views.DisplayDashboard, name="my_dashboard_view"),
-  
+    path('dashboard', views.MyDashboardView.as_view(), name="my_dashboard_view"),
 ]
