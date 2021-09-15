@@ -1,12 +1,21 @@
 from django.http import request
 from django.shortcuts import render
 from django.views.generic import View
-from .models import Dish
+from .forms import *
 # Create your views here.
 
 class MyIndexView(View):
-    def get(self, request):
-        return render(request, 'index.html', {})
+  def get(self,request):
+        users = User.objects.all()
+        dishes = Dish.objects.all()
+        menutype = MenuType.objects.all()
+        context = {
+            'users': users,
+            'dishes': dishes,
+            'menutype': menutype
+        }
+        return render(request, 'index.html', context)
+
 
 class MyLoginView(View):
     def get(self,request):
@@ -23,8 +32,12 @@ class MyAboutView(View):
         
 class MyDashboardView(View):
      def get(self,request):
-        return render(request, 'Dashboard.html', {})
-
-def DisplayDashboard(request):
-    dish_list = Dish.objects.all()
-    return render(request, 'Dashboard.html', {'dish_list': dish_list})
+        users = User.objects.all()
+        dishes = Dish.objects.all()
+        menutype = MenuType.objects.all()
+        context = {
+            'users': users,
+            'dishes': dishes,
+            'menutype': menutype
+        }
+        return render(request, 'Dashboard.html', context)
