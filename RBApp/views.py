@@ -5,8 +5,17 @@ from .forms import *
 # Create your views here.
 
 class MyIndexView(View):
-    def get(self, request):
-        return render(request, 'index.html', {})
+  def get(self,request):
+        users = User.objects.all()
+        dishes = Dish.objects.all()
+        menutype = MenuType.objects.all()
+        context = {
+            'users': users,
+            'dishes': dishes,
+            'menutype': menutype
+        }
+        return render(request, 'index.html', context)
+
 
 class MyLoginView(View):
     def get(self,request):

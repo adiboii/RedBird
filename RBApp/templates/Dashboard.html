@@ -44,7 +44,7 @@
                 <div class="container">
                     <div class="buttons-container"> <a href="#" class="button button--is-active" data-target="Users">Users</a>
                         <a href="#" class="button" data-target="Dishes">Dishes</a> 
-                        <a href="#" class="button" data-target="MenuType">Menu Types</a> 
+                        <a href="#" class="button" data-target="MenuTypes">Menu Types</a> 
                         <a href="#" class="button" data-target="Orders">Orders</a>  
 
                     </div>
@@ -98,23 +98,21 @@
                                 </table>    
                         </div>
 
-                            <div class="menu " id="Dishes" data-aos="fade-up">
+                            <div class="menu " id="MenuTypes" data-aos="fade-up">
                             <table class="table">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">Dish ID</th>
+                                        <th scope="col">Type ID</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Price</th>
                                         <th scope="col">Description</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for dish in dishes %}
+                                        {% for type in menutype %}
                                             <tr>
-                                            <td>{{dish.dish_id}}</td>
-                                            <td>{{dish.name}}</td>
-                                            <td>{{dish.price}}</td>
-                                            <td>{{dish.description}}</td> 
+                                            <td>{{type.type_id}}</td>
+                                            <td>{{type.name}}</td>
+                                            <td>{{type.description}}</td> 
                                         {% endfor %}
                                     </tbody>
                                 </table>    
@@ -139,7 +137,26 @@
                                     </tbody>
                                 </table>    
                         </div>
-
+                        
+                        <div class="menu " id="Orders" data-aos="fade-up">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Order ID</th>
+                                        <th scope="col">Item ID</th>
+                                        <th scope="col">Total Price</th>
+                                        <th scope="col">First name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Street</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">Phone Number</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                    </tbody>
+                                </table>    
+                        </div>
 
                     </div>
                 
