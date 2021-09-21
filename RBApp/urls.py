@@ -26,4 +26,7 @@ urlpatterns = [
     path('signup', views.MySignUpView.as_view(), name="my_signup_view"),
     path('aboutus', views.MyAboutView.as_view(), name="my_about_view"),
     path('dashboard', views.MyDashboardView.as_view(), name="my_dashboard_view"),
+    path('add-user', views.UserFormView.as_view(), name="my_userform_view"),
+    path('add-dish', views.DishFormView.as_view(), name="my_dishform_view"),
+    path('add-menutype', views.MenuTypeFormView.as_view(), name="my_menutypeform_view"),
 ]

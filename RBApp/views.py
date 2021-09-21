@@ -28,7 +28,7 @@ class MySignUpView(View):
 class MyAboutView(View):
      def get(self,request):
         return render(request, 'article.html', {})
-
+        
         
 class MyDashboardView(View):
      def get(self,request):
@@ -41,3 +41,18 @@ class MyDashboardView(View):
             'menutype': menutype
         }
         return render(request, 'Dashboard.html', context)
+
+
+class UserFormView(View):
+        def get(self,request):
+                return render(request, 'forms/user-form.html', {})
+
+
+class DishFormView(View):
+    def get(self,request):
+                return render(request, 'forms/dish-form.html', {})
+
+
+class MenuTypeFormView(View):
+    def get(self,request):
+                return render(request, 'forms/menutype-form.html', {})
