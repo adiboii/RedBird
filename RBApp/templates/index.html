@@ -76,34 +76,7 @@
                         </div>
                         <!-- Start Pizza Menu -->
 
-                        {% for dish in dishes %}
-                            {% if forloop.first %}
-                                <div class="menu menu--is-visible" id="{{dish.type_id}}" data-aos="fade-up">
-                                    <div class="item row align-items-center">
-                                        <div class="col-sm-3 pr-5"> 
-                                            <img class="product-img" src="{% static 'RBApp/img/1.Signature Fried Chicken Meal/1pc Red Bird Fried Chicken w Rice.jpg' %}">
-                                        </div>
-                                        <div class="details col-sm-9">
-                                            <div class="item__header">
-                                                <h3 class="item__title">Red Bird Fried Chicken w/ Rice (1 pc.)</h3>
-                                                <span class="item__dots"></span>
-                                                <span class="item__price">$15</span>
-                                            </div>
-                                            <p class="item__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum
-                                                officia eaque nobis ut.</p>
-                                            <button class="btn btn-sm btn-outline-primary my-cart-btn"
-                                            data-id="1" data-name="Red Bird Fried Chicken w/ Rice (1 pc.)" data-price="15" data-quantity="1"
-                                            data-image="{% static 'RBApp/img/1.Signature Fried Chicken Meal/1pc Red Bird Fried Chicken w Rice.jpg' %}">Add to cart</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            {% else %}
-                                <a href="#" class="button" data-target="{{type.name}}">{{type.name}}</a> 
-                            {% endif %}
-
-                        {% endfor %}
-
+                
 
 
 
