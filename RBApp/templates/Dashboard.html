@@ -54,8 +54,8 @@
                     </div>
                     
                         <div class="menu menu--is-visible" id="Users" data-aos="fade-up">
-                            <form action="{% url 'RBApp:my_userform_view' %}">
-                                <input type="submit" value="Create User" />
+                            <form action="{% url 'RBApp:my_userform_view' %}">                      
+                                <input type="submit" value="Create User" class="btn px-5 btn-primary">
                             </form>
                             <table id="example" class="table">
                                 <thead class="thead-dark">
@@ -80,9 +80,9 @@
                                             <td>{{user.street}}</td>
                                             <td>{{user.city}}</td>
                                             <td>{{user.country}}</td>
-                                            <td>
-                                                <button type="submit" name="edit">Edit</button>
-                                                <button type="submit" name="Delete">Delete</button>
+                                            <td>  
+                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="edit">Edit</button>
+                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="Delete">Delete</button>
                                             </td>
                                         {% endfor %}
                                     </tbody>
@@ -90,8 +90,8 @@
                         </div>
 
                         <div class="menu " id="Dishes" data-aos="fade-up">
-                            <form action="{% url 'RBApp:my_dishform_view' %}">
-                                <input type="submit" value="Create Dish" />
+                            <form action="{% url 'RBApp:my_userform_view' %}">                      
+                                <input type="submit" value="Create Dish" class="btn px-5 btn-primary">
                             </form>
                             <table class="table table-striped table-hover dt-responsive">
                                 <thead class="thead-dark">
@@ -100,6 +100,7 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Description</th>
+                                        <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -109,14 +110,18 @@
                                             <td>{{dish.name}}</td>
                                             <td>{{dish.price}}</td>
                                             <td>{{dish.description}}</td> 
+                                            <td>  
+                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="edit">Edit</button>
+                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="Delete">Delete</button>
+                                            </td>
                                         {% endfor %}
                                     </tbody>
                                 </table>    
                         </div>
 
                             <div class="menu " id="MenuTypes" data-aos="fade-up">
-                                <form action="{% url 'RBApp:my_menutypeform_view' %}">
-                                    <input type="submit" value="Create Menu Type" />
+                                <form action="{% url 'RBApp:my_userform_view' %}">                      
+                                    <input type="submit" value="Create Menu Type" class="btn px-5 btn-primary">
                                 </form>
                             
                             <table class="table">
@@ -125,6 +130,7 @@
                                         <th scope="col">Type ID</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Description</th>
+                                        <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -133,51 +139,16 @@
                                             <td>{{type.type_id}}</td>
                                             <td>{{type.name}}</td>
                                             <td>{{type.description}}</td> 
+                                            <td>  
+                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="edit">Edit</button>
+                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="Delete">Delete</button>
+                                            </td>
                                         {% endfor %}
                                     </tbody>
                                 </table>    
                         </div>
                         
-                        <div class="menu " id="MenuType" data-aos="fade-up">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">Type ID</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for type in menutype %}
-                                            <tr>
-                                            <td>{{type.type_id}}</td>
-                                            <td>{{type.name}}</td>
-                                            <td>{{type.description}}</td>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>    
-                        </div>
-                        
-                        <div class="menu " id="Orders" data-aos="fade-up">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">Order ID</th>
-                                        <th scope="col">Item ID</th>
-                                        <th scope="col">Total Price</th>
-                                        <th scope="col">First name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Street</th>
-                                        <th scope="col">City</th>
-                                        <th scope="col">Phone Number</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                       
-                                    </tbody>
-                                </table>    
-                        </div>
-
+        
                     </div>
                 
             </section>
