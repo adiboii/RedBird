@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from RBApp.urls import urlpatterns as RBAPP_URLS
-
+from django.conf.urls import include
 
 app_name="RBApp"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('RBApp.urls', namespace="RBApp")),
 ]
 
-urlpatterns.extend(RBAPP_URLS)
+# urlpatterns.extend(RBAPP_URLS)
