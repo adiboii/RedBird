@@ -10,13 +10,14 @@ class UserForm(forms.ModelForm):
 class DishForm(forms.ModelForm):
     class Meta:
         model = Dish
-        fields = '__all__'
+        fields = ('name', 'price', 'description')
+        # fields = '__all__'
 
 
 class MenuTypeForm(forms.ModelForm):
     class Meta:
         model = MenuType
-        fields = '__all__'
+        fields = ('name', 'description')
         
 
 

@@ -49,11 +49,12 @@
                       <h3>Add Menu Type</h3>
                       <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
                       <form action="#" method="post">
+                        {% csrf_token %}
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group first">
                               <label for="fname">Menu Type Name</label>
-                              <input type="text" class="form-control" placeholder="Originals" id="fname" required="true">
+                              <input type="text" name="name" class="form-control" placeholder="Originals" id="fname" required="true">
                             </div>    
                           </div>
                         </div>
@@ -62,7 +63,7 @@
                          
                             <div class="form-group first">
                                 <label for="email">Description</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required="true"></textarea>
+                                <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required="true"></textarea>
                               </div>
                           </div>
                         </div>

@@ -48,18 +48,19 @@
                     <div class="col-md-7 py-5">
                       <h3>Add User</h3>
                       <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
-                      <form action="#" method="post">
+                      <form method="post" action="#">
+                        {% csrf_token %}
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group first">
                               <label for="fname">First Name</label>
-                              <input type="text" class="form-control" placeholder="e.g. John" id="fname" required="true">
+                              <input type="text" class="form-control" placeholder="e.g. John" name="first_name" id="fname" required="true">
                             </div>    
                           </div>
                           <div class="col-md-6">
                             <div class="form-group first">
                               <label for="lname">Last Name</label>
-                              <input type="text" class="form-control" placeholder="e.g. Smith" id="lname" required="true">
+                              <input type="text" class="form-control" placeholder="e.g. Smith" name="last_name" id="lname" required="true">
                             </div>    
                           </div>
                         </div>
@@ -67,7 +68,7 @@
                           <div class="col-md-12">
                             <div class="form-group first">
                               <label for="username">Username</label>
-                              <input type="username" class="form-control" placeholder="johnsmith" id="" required="true">
+                              <input type="username" class="form-control" name="username" placeholder="johnsmith" id="" required="true">
                             </div>    
                           </div>
                         </div>
@@ -77,7 +78,7 @@
                           
                               <div class="form-group last mb-3">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" placeholder="Password" id="password" required="true">
+                                <input type="password" class="form-control" name="password" placeholder="Password" id="password" required="true">
                               </div>
                             </div>
                             <!-- <div class="col-md-6">
@@ -88,25 +89,25 @@
                               </div>
                             </div> -->
                           </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                               <div class="form-group first">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control" placeholder="john@gmail.com" id="email" required="true">
+                                <input type="email" class="form-control" name="email" placeholder="john@gmail.com" id="email" required="true">
                               </div>    
                             </div>
-                          </div>
+                          </div> -->
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group first">
                               <label for="lname">Phone Number</label>
-                              <input type="text" class="form-control" placeholder="09270389123" id="lname" required="true">
+                              <input type="text" class="form-control" name="phone_number" placeholder="09270389123" id="lname" required="true">
                             </div>    
                           </div>
                           <div class="col-md-6">
                             <div class="form-group first">
                               <label for="lname">Street</label>
-                              <input type="text" class="form-control" placeholder="F. Roxas Street" id="lname" required="true">
+                              <input type="text" class="form-control" name="street" placeholder="F. Roxas Street" id="lname" required="true">
                             </div>    
                           </div>
                         </div>
@@ -114,13 +115,13 @@
                             <div class="col-md-6">
                               <div class="form-group first">
                                 <label for="lname">City</label>
-                                <input type="text" class="form-control" placeholder="Manila" id="lname" required="true">
+                                <input type="text" class="form-control" name="city" placeholder="Manila" id="lname" required="true">
                               </div>    
                             </div>
                             <div class="col-md-6">
                               <div class="form-group first">
                                 <label for="lname">Country</label>
-                                <input type="text" class="form-control" placeholder="Philippines" id="lname" required="true">
+                                <input type="text" class="form-control" name="country" placeholder="Philippines" id="lname" required="true">
                               </div>    
                             </div>
                           </div>
