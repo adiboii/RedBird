@@ -1,12 +1,21 @@
 from django.http import request
 from django.shortcuts import render
 from django.views.generic import View
-from .models import Dish
+from .forms import *
 # Create your views here.
 
 class MyIndexView(View):
-    def get(self, request):
-        return render(request, 'index.html', {})
+  def get(self,request):
+        users = User.objects.all()
+        dishes = Dish.objects.all()
+        menutype = MenuType.objects.all()
+        context = {
+            'users': users,
+            'dishes': dishes,
+            'menutype': menutype
+        }
+        return render(request, 'index.html', context)
+
 
 class MyLoginView(View):
     def get(self,request):
@@ -19,12 +28,31 @@ class MySignUpView(View):
 class MyAboutView(View):
      def get(self,request):
         return render(request, 'article.html', {})
-
+        
         
 class MyDashboardView(View):
      def get(self,request):
-        return render(request, 'Dashboard.html', {})
+        users = User.objects.all()
+        dishes = Dish.objects.all()
+        menutype = MenuType.objects.all()
+        context = {
+            'users': users,
+            'dishes': dishes,
+            'menutype': menutype
+        }
+        return render(request, 'Dashboard.html', context)
 
-def DisplayDashboard(request):
-    dish_list = Dish.objects.all()
-    return render(request, 'Dashboard.html', {'dish_list': dish_list})
+
+class UserFormView(View):
+        def get(self,request):
+                return render(request, 'forms/user-form.html', {})
+
+
+class DishFormView(View):
+    def get(self,request):
+                return render(request, 'forms/dish-form.html', {})
+
+
+class MenuTypeFormView(View):
+    def get(self,request):
+                return render(request, 'forms/menutype-form.html', {})

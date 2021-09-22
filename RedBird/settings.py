@@ -85,7 +85,7 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydbproject',
+        'NAME': 'rbapp_db',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
