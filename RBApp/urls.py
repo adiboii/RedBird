@@ -27,4 +27,7 @@ urlpatterns = [
     path('add-user', views.UserFormView.as_view(), name="my_userform_view"),
     path('add-dish', views.DishFormView.as_view(), name="my_dishform_view"),
     path('add-menutype', views.MenuTypeFormView.as_view(), name="my_menutypeform_view"),
+    path('delete/<str:username>', views.delete_user),
+    path('delete_dish/<int:dish_id>', views.delete_dish),
+    path('delete_menu_type/<int:type_id>', views.delete_menu_type),
 ]
