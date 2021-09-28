@@ -23,6 +23,7 @@
 {% endblock footerinclude %}
 
 {% block content %}
+    
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
             <button
             class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -42,6 +43,7 @@
                     class="btn btn-outline-dark">Login</a>
                 </div>
     </nav>
+    {% include 'messages.html' %}
     <div class="maincontent">
         <div class="container">
             <section id="menu">
@@ -80,8 +82,9 @@
                                             <td>{{user.city}}</td>
                                             <td>{{user.country}}</td>
                                             <td>  
-                                                <button class="btn btn-sm btn-outline-primary"  name="edit">Edit</button>
-                                                <button class="btn btn-sm btn-outline-primary"  name="Delete">Delete</button>
+                                                <a href="/delete/{{user.username}}" class="btn btn-sm btn-outline-primary my-cart-btn">Edit</button>
+                                                    <span></span>
+                                                <a href="/delete/{{user.username}}" class="btn btn-sm btn-outline-primary my-cart-btn">Delete</button>
                                             </td>
                                         {% endfor %}
                                     </tbody>
@@ -110,8 +113,8 @@
                                             <td>{{dish.price}}</td>
                                             <td>{{dish.description}}</td> 
                                             <td>  
-                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="edit">Edit</button>
-                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="Delete">Delete</button>
+                                                <a href="/delete_dish/{{dish.dish_id}}" class="btn btn-sm btn-outline-primary my-cart-btn">Edit</button>
+                                                <a href="/delete_dish/{{dish.dish_id}}" class="btn btn-sm btn-outline-primary my-cart-btn">Delete</button>
                                             </td>
                                         {% endfor %}
                                     </tbody>
@@ -139,8 +142,8 @@
                                             <td>{{type.name}}</td>
                                             <td>{{type.description}}</td> 
                                             <td>  
-                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="edit">Edit</button>
-                                                <button class="btn btn-sm btn-outline-primary my-cart-btn" type="submit" name="Delete">Delete</button>
+                                                <a href="/delete_dish/{{dish.dish_id}}" class="btn btn-sm btn-outline-primary my-cart-btn">Edit</button>
+                                                <a href="/delete_menu_type/{{type.type_id}}" class="btn btn-sm btn-outline-primary my-cart-btn">Delete</button>
                                             </td>
                                         {% endfor %}
                                     </tbody>
@@ -154,6 +157,13 @@
         </div>
     </div>
     
+    <script>
+        setTimeout(function(){
+            if($('msg').length > 0) {
+                $('msg').remove();
+            }
+        }, 2000)
+    </script>
 
     <script src="{% static 'RBApp/js/mycart.js'%}"></script>
     <script src="{% static 'RBApp/js/mycart-custom.js'%}"></script>
