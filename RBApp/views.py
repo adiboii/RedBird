@@ -43,15 +43,18 @@ class MyDashboardView(View):
             'dishes': dishes,
             'menutype': menutype
         }
+    
         return render(request, 'Dashboard.html', context)
 
 
 class UserFormView(View):
         def get(self,request):
+               
                 return render(request, 'forms/user-form.html', {})
         
         def post(self, request):
                 form = UserForm(request.POST)
+            
                 if form.is_valid():
                     fname = request.POST.get("first_name")
                     lname = request.POST.get("last_name")
@@ -63,6 +66,7 @@ class UserFormView(View):
                     cntry = request.POST.get("country")
                     form = User(username = uname, password = pword, first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry)
                     form.save()
+                    
                     return redirect('RBApp:my_dashboard_view')
                 else:
                     messages.error(request, "Error")

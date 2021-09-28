@@ -1,7 +1,5 @@
-$(document).ready(function () {
-    $('#example')
-            .dataTable({
-                "responsive": true,
-                "ajax": 'data.json'
-            });
-});
+$(document).ready( function () {
+    $('#user_table').DataTable();
+    $('#dish_table').DataTable();
+    $('#type_table').DataTable();
+} );
