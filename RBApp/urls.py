@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from RBApp import views
@@ -30,4 +31,7 @@ urlpatterns = [
     path('delete/<str:username>', views.delete_user),
     path('delete_dish/<int:dish_id>', views.delete_dish),
     path('delete_menu_type/<int:type_id>', views.delete_menu_type),
+    path('edit_user/<str:username>', views.edit_user, name="edit_user"),
+    path('edit_dish/<int:dish_id>', views.edit_dish, name="edit_dish"),
+    path('edit_menu_type/<int:type_id>', views.edit_menu_type, name="edit_menu_type"),
 ]

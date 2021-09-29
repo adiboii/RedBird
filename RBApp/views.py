@@ -126,3 +126,83 @@ def delete_menu_type(request, type_id):
     menu_type = MenuType.objects.get(type_id = type_id)
     menu_type.delete()
     return redirect('RBApp:my_dashboard_view')
+
+def edit_user(request, username):
+    template = 'forms/edit-user.html'
+    user = User.objects.get(username = username)
+
+    if request.method == "POST":
+        form = UserForm(request.POST, instance=user)
+
+        try:
+            if form.is_valid(): 
+                form.save()
+                messages.success(request, 'User has been updated.')
+                return redirect('RBApp:my_dashboard_view')
+
+        except Exception as e:
+            messages.warning(request, 'User was not saved due to error: {}'.format(e))
+    
+    else:
+        form = UserForm(instance=user)
+
+    context = {
+        'form': form,
+        'user': user,
+    }
+    
+    return render(request, template, context)
+
+
+
+def edit_dish(request, dish_id):
+    template = 'forms/edit-dish.html'
+    dish = Dish.objects.get(dish_id = dish_id)
+    if request.method == "POST":
+        form = DishForm(request.POST, instance=dish)
+
+        try:
+            if form.is_valid(): 
+                form.save()
+                messages.success(request, 'User has been updated.')
+                return redirect('RBApp:my_dashboard_view')
+                
+        except Exception as e:
+            messages.warning(request, 'User was not saved due to error: {}'.format(e))
+    
+    else:
+        form = DishForm(instance=dish)
+
+    context = {
+        'form': form,
+        'dish': dish,
+    }
+    
+    return render(request, template, context)
+
+
+
+def edit_menu_type(request, type_id):
+    template = 'forms/edit-type.html'
+    type = MenuType.objects.get(type_id = type_id)
+    if request.method == "POST":
+        form = MenuTypeForm(request.POST, instance=type)
+
+        try:
+            if form.is_valid(): 
+                form.save()
+                messages.success(request, 'User has been updated.')
+                return redirect('RBApp:my_dashboard_view')
+                
+        except Exception as e:
+            messages.warning(request, 'User was not saved due to error: {}'.format(e))
+    
+    else:
+        form = MenuTypeForm(instance=type)
+
+    context = {
+        'form': form,
+        'type': type,
+    }
+    
+    return render(request, template, context)

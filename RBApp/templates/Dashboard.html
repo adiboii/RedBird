@@ -82,9 +82,9 @@
                                             <td>{{user.city}}</td>
                                             <td>{{user.country}}</td>
                                             <td>  
-                                                <a href="/delete/{{user.username}}" class="btn btn-sm btn-outline-primary my-cart-btn">Edit</button>
+                                                <a href="/edit_user/{{user.username}}" class="btn btn-sm btn-outline-primary">Edit</button>
                                                     <span></span>
-                                                <a href="/delete/{{user.username}}" class="btn btn-sm btn-outline-primary my-cart-btn">Delete</button>
+                                                <a href="/delete/{{user.username}}" class="btn btn-sm btn-outline-primary">Delete</button>
                                             </td>
                                         {% endfor %}
                                     </tbody>
@@ -113,8 +113,8 @@
                                             <td>{{dish.price}}</td>
                                             <td>{{dish.description}}</td> 
                                             <td>  
-                                                <a href="/delete_dish/{{dish.dish_id}}" class="btn btn-sm btn-outline-primary my-cart-btn">Edit</button>
-                                                <a href="/delete_dish/{{dish.dish_id}}" class="btn btn-sm btn-outline-primary my-cart-btn">Delete</button>
+                                                <a href="/edit_dish/{{dish.dish_id}}" class="btn btn-sm btn-outline-primary">Edit</button>
+                                                <a href="/delete_dish/{{dish.dish_id}}" class="btn btn-sm btn-outline-primary">Delete</button>
                                             </td>
                                         {% endfor %}
                                     </tbody>
@@ -142,8 +142,8 @@
                                             <td>{{type.name}}</td>
                                             <td>{{type.description}}</td> 
                                             <td>  
-                                                <a href="/delete_dish/{{dish.dish_id}}" class="btn btn-sm btn-outline-primary my-cart-btn">Edit</button>
-                                                <a href="/delete_menu_type/{{type.type_id}}" class="btn btn-sm btn-outline-primary my-cart-btn">Delete</button>
+                                                <a href="/edit_menu_type/{{type.type_id}}" class="btn btn-sm btn-outline-primary">Edit</button>
+                                                <a href="/delete_menu_type/{{type.type_id}}" class="btn btn-sm btn-outline-primary">Delete</button>
                                             </td>
                                         {% endfor %}
                                     </tbody>
