@@ -32,8 +32,15 @@ class MySignUpView(View):
 class MyAboutView(View):
      def get(self,request):
         return render(request, 'article.html', {})
-        
-        
+
+class ContactUsView(View):
+    def get(self, request):
+        return render(request, 'contactus.html', {})
+
+class FeaturesView(View):
+    def get(self, request):
+        return render(request, 'features.html', {})
+
 class MyDashboardView(View):
      def get(self,request):
         users = User.objects.all()

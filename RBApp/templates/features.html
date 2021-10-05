@@ -1,0 +1,124 @@
+{% load static %}
+{% block headerinclude %}
+  <!-- Links and Style (CSS) -->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'RBApp/css/style.css'%}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<script src="{% static 'RBApp/js/jquery.min.js' %}"></script>
+	<link rel="icon" href="" />
+    <title>Red Bird</title>
+{% endblock headerinclude %}
+
+{% block footerinclude %}
+	<script src="{% static 'RBApp/js/bootstrap.min.js'%}"></script>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="{% static 'RBApp/js/custom-general.js'%}"></script>
+    
+
+    
+{% endblock footerinclude %}
+
+{% block content %}
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
+    <button
+    class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="#menu">Today's Menu</a>
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="/index">Features</a>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="/contactus">Contact Us</a>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
+                </li>
+            </ul> 
+            <a href="/login" class="btn btn-outline-dark">Login</a>
+            <a href="/signup" class="btn btn-outline-dark">Sign Up</a>
+        </div>
+</nav>
+
+
+<div class="block my-auto" style="background-image:url(https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80); 
+background-position: center;
+    height: 500px;
+  padding: 50px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: darken;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  margin: 0 30px;">
+  <br><br> <br><br>
+    <div class="container-fluid text-center">
+         <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000"
+        data-aos-offset="0" style="font-family: 'Bungee Inline';">Red Bird</h1>
+     
+    
+    </div>
+    <div class="clearfix"></div>
+</div>
+        
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0"></div>
+            <div class="col-lg-auto">
+                <div class="buttons-container"> <a href="#" class="button button--is-active" data-target="Users" style="font-size: 1.8rem;">Features</a></div>
+                <div class="row gx-5 row-cols-1 row-cols-md-2">
+                    <div class="col mb-5 h-100">
+                        <div class="row">
+             
+                            <h2>Menu</h2>
+                        </div>
+                       
+                        <p class="mb-0">Are you looking for food to eat? Browse through our menu that lists all the dishes Red Bird can offer! You can navigate through various dish types such as: The Originals, Bundles,  Breakfast Meals, Beverages, Desserts, and Extras.</p>
+                    </div>
+                    <div class="col mb-5 h-100">
+                        <div class="row">
+                           
+                            <h2>Delivery</h2>
+                        </div>
+                        <p class="mb-0">Want something to eat while watching Netflix? Worry no more! Have Red Bird's tasty dishes delivered in front of your doorstep. Simply fill up your cart and create an order. In a matter of minutes, you can then enjoy your food and movie without going out!</p>
+                    </div>
+                    <div class="col mb-5 mb-md-0 h-100">
+                        <div class="row">
+                          
+                            <h2>Online Payment</h2>
+                        </div>
+                        <p class="mb-0">Red Bird orders are made more convenient through contactless payments! Payments may be done using various mobile wallets such as GCash and other bank applications.</p>
+                    </div>
+                    <div class="col h-100">
+                        <div class="row">
+              
+                            <h2>Cart</h2>
+                        </div>
+                        <p class="mb-0">Don't know what you're craving for? You may choose to order later and put all your favorite Red Bird dishes in your cart! So whenever you decided to choose Red Bird, a click will be all you need!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+              
+        
+        <footer class="block footer1 footer text-center">
+            <p>&copy; Gabutan, Mel Jefferson T. | Reyes, Adrian Paul N. </p>
+            <p>CSIT327 F1-C1 AY 2021 - 2022</p>
+        </footer>
+
+
+        <script>
+            AOS.init();
+        </script>
+
+       
+{% endblock content %}

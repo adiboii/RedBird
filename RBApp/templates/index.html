@@ -21,30 +21,31 @@
 {% endblock footerinclude %}
 
 {% block content %}
-  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
-        <button
-        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"> <a class="nav-link" href="/dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item active"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active"> <a class="nav-link" href="/index">Today's Menu</a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="/index">Features</a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="/index">Contact Us</a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
-                    </li>
-                </ul> 
-                <a href="/login" class="btn btn-outline-dark">Login</a>
-                <a href="/signup" class="btn btn-outline-dark">Sign Up</a>
-            </div>
-    </nav>
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
+    <button
+    class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="#menu">Today's Menu</a>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="/features">Features</a>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="/contactus">Contact Us</a>
+                </li>
+                <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
+                </li>
+            </ul> 
+            <a href="/login" class="btn btn-outline-dark">Login</a>
+            <a href="/signup" class="btn btn-outline-dark">Sign Up</a>
+        </div>
+</nav>
+
     
     <div class="block hero1 my-auto" style="background-image:url(https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);">
             <div class="container-fluid text-center">
