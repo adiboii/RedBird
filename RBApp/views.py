@@ -139,16 +139,25 @@ def edit_user(request, username):
     user = User.objects.get(username = username)
 
     if request.method == "POST":
-        form = UserForm(request.POST, instance=user)
-
+        form = UserForm(request.POST)
+        uname = request.POST.get("username")
+        pNumber = request.POST.get("phone_number")
+        fname = request.POST.get("first_name")
+        lname = request.POST.get("last_name")
+        pword = request.POST.get("password")
+        strt = request.POST.get("street")
+        cty = request.POST.get("city")
+        cntry = request.POST.get("country")
         try:
-            if form.is_valid(): 
-                form.save()
-                messages.success(request, 'User has been updated.')
-                return redirect('RBApp:my_dashboard_view')
+            update_user = User.objects.filter(username = uname).update(password = pword, first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry)
+            print(update_user)
+            messages.success(request, 'User has been updated.')
+            
 
         except Exception as e:
             messages.warning(request, 'User was not saved due to error: {}'.format(e))
+        
+        return redirect('RBApp:my_dashboard_view')
     
     else:
         form = UserForm(instance=user)
@@ -167,15 +176,21 @@ def edit_dish(request, dish_id):
     dish = Dish.objects.get(dish_id = dish_id)
     if request.method == "POST":
         form = DishForm(request.POST, instance=dish)
-
-        try:
-            if form.is_valid(): 
-                form.save()
-                messages.success(request, 'User has been updated.')
-                return redirect('RBApp:my_dashboard_view')
+        nme = request.POST.get("name")
+        prce = request.POST.get("price")
+        temp = prce.replace(".", "")
+        dscrptn = request.POST.get("description")
+        if temp.isnumeric():
+            try:
+                update_dish = Dish.objects.filter(dish_id = dish_id).update(name = nme, price = prce, description = dscrptn)
+                print(update_dish)
+                messages.success(request, 'Dish has been updated.')
                 
-        except Exception as e:
-            messages.warning(request, 'User was not saved due to error: {}'.format(e))
+                    
+            except Exception as e:
+                messages.warning(request, 'Dish was not saved due to error: {}'.format(e))
+
+            return redirect('RBApp:my_dashboard_view')
     
     else:
         form = DishForm(instance=dish)
@@ -194,15 +209,19 @@ def edit_menu_type(request, type_id):
     type = MenuType.objects.get(type_id = type_id)
     if request.method == "POST":
         form = MenuTypeForm(request.POST, instance=type)
-
+        nme = request.POST.get("name")
+        dscrptn = request.POST.get("description")
+        form = MenuType(name = nme, description = dscrptn)
         try:
-            if form.is_valid(): 
-                form.save()
-                messages.success(request, 'User has been updated.')
-                return redirect('RBApp:my_dashboard_view')
+            update_menu_type = MenuType.objects.filter(type_id = type_id).update(name = nme, description = dscrptn)
+            print(update_menu_type)
+            messages.success(request, 'Menu Type has been updated.')
+            return redirect('RBApp:my_dashboard_view')
                 
         except Exception as e:
-            messages.warning(request, 'User was not saved due to error: {}'.format(e))
+            messages.warning(request, 'Menu Type was not saved due to error: {}'.format(e))
+        
+        return redirect('RBApp:my_dashboard_view')
     
     else:
         form = MenuTypeForm(instance=type)
