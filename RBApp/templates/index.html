@@ -68,7 +68,9 @@
                             <!-- <a href="#" class="button button--is-active" data-target="Originals">Originals</a> -->
                             {% for type in menutype %}
                                 {% if forloop.first %}
-                                    <a href="#" class="button button--is-active" data-target="{{type.name}}">{{type.name}}</a> 
+                                    <a href="#" class="button button--is-active" data-target="{{type.name}}">{{type.name}}</a>
+                                {% elif type.name == "Breakfast Meals" %} 
+                                    <a href="#" class="button button--is-active" data-target="BreakfastMeals">{{type.name}}</a>
                                 {% else %}
                                     <a href="#" class="button" data-target="{{type.name}}">{{type.name}}</a> 
                                 {% endif %}
@@ -85,7 +87,7 @@
 
 
 
-                        <div class="menu menu--is-visible" id="Breakfast Meals" data-aos="fade-up">
+                        <div class="menu menu--is-visible" id="Originals" data-aos="fade-up">
                             <div class="item row align-items-center">
                                 <div class="col-sm-3 pr-5"> 
                                     <img class="product-img" src="{% static 'RBApp/img/1.Signature Fried Chicken Meal/1pc Red Bird Fried Chicken w Rice.jpg' %}">
@@ -260,7 +262,7 @@
 
 
                         <!-- Start Breakfast Menu -->
-                        <div class="menu " id="Breakfast Meals" data-aos="fade-up">
+                        <div class="menu " id="BreakfastMeals" data-aos="fade-up">
                             <div class="item row align-items-center">
                                 <div class="col-sm-3 pr-5">
                                     <img class="product-img" src="{% static 'RBApp/img/3.Breakfaster/Cheezy Sausage Meal.jpg '%}">

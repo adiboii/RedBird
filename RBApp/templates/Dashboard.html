@@ -101,13 +101,45 @@
                                         <span></span>
                                         <!-- <a href="/delete/{{user.username}}" class="btn btn-sm btn-outline-primary">Delete</button> -->
                                         <a class="btn btn-sm btn-outline-primary" data-toggle="modal"
-                                            data-target="#deleteModal">
+                                            data-target="#modal-{{user.username}}">
                                             Delete
                                         </a>
                                 </td>
+
+                                <div class="modal fade" id="modal-{{user.username}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true" data-backdrop="false">
+                                    <div class="modal-dialog" role="document">
+                                        <form method="POST" action="{% url 'RBApp:delete_user' user.username %}">
+                                            {% csrf_token %}
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete <b>User: {{user.username}}</b>?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary" name="btnDelete">Delete</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
                                 {% endfor %}
+                   
+                             
                         </tbody>
+                       
                     </table>
+                </div>
+            
+       
                 </div>
 
                 <div class="menu " id="Dishes" data-aos="fade-up">
@@ -135,12 +167,36 @@
                                     <a href="/edit_dish/{{dish.dish_id}}"
                                         class="btn btn-sm btn-outline-primary">Edit</button>
                                         <a class="btn btn-sm btn-outline-primary" data-toggle="modal"
-                                            data-target="#deleteModal">
+                                            data-target="#modal-{{dish.name}}">
                                             Delete
                                         </a>
-                                        <!-- <a href="/delete_dish/{{dish.dish_id}}"
-                                            class="btn btn-sm btn-outline-primary">Delete</button> -->
+                             
                                 </td>
+
+                                <div class="modal fade" id="modal-{{dish.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true" data-backdrop="false">
+                                    <div class="modal-dialog" role="document">
+                                        <form method="POST" action="{% url 'RBApp:delete_dish' dish.dish_id %}">
+                                            {% csrf_token %}
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete <b>Dish: {{dish.name}}</b>?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary" name="btnDelete">Delete</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                                 {% endfor %}
                         </tbody>
                     </table>
@@ -172,15 +228,36 @@
                                         <!-- href="/delete_menu_type/{{type.type_id}}"? -->
                                         <!-- <a class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Delete</button> -->
                                         <a class="btn btn-sm btn-outline-primary" data-toggle="modal"
-                                            data-target="#deleteModal">
+                                            data-target="#modal-{{type.name}}">
                                             Delete
                                         </a>
-
-                                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                                Launch demo modal
-                                                </button> -->
                                 </td>
-                                {% endfor %}
+
+                                <div class="modal fade" id="modal-{{type.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true" data-backdrop="false">
+                                    <div class="modal-dialog" role="document">
+                                        <form method="POST" action="{% url 'RBApp:delete_menu_type' type.type_id %}">
+                                            {% csrf_token %}
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                
+                                                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete <b>Menu Type: {{type.name}}</b>?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary" name="btnDelete">Delete</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endfor %}
                         </tbody>
                     </table>
                     <!-- Button trigger modal -->
@@ -194,26 +271,7 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <script>
     setTimeout(function () {
