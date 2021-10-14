@@ -96,17 +96,18 @@
                                 <td>{{user.city}}</td>
                                 <td>{{user.country}}</td>
                                 <td>
-                                    <a href="/edit_user/{{user.username}}"
-                                        class="btn btn-sm btn-outline-primary">Edit</button>
+                                        <a href="/edit_user/{{user.username}}"
+                                        class="btn btn-sm btn-outline-primary">Edit</a>
                                         <span></span>
                                         <!-- <a href="/delete/{{user.username}}" class="btn btn-sm btn-outline-primary">Delete</button> -->
-                                        <a class="btn btn-sm btn-outline-primary" data-toggle="modal"
+                                        <button class="btn btn-sm btn-outline-primary" data-toggle="modal"
                                             data-target="#modal-{{user.username}}">
                                             Delete
-                                        </a>
+                                        </button>
                                 </td>
+                            </tr>
 
-                                <div class="modal fade" id="modal-{{user.username}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                <div style="position: absolute" class="modal fade" id="modal-{{user.username}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true" data-backdrop="false">
                                     <div class="modal-dialog" role="document">
                                         <form method="POST" action="{% url 'RBApp:delete_user' user.username %}">
@@ -167,13 +168,14 @@
                                     <a href="/edit_dish/{{dish.dish_id}}"
                                         class="btn btn-sm btn-outline-primary">Edit</button>
                                         <a class="btn btn-sm btn-outline-primary" data-toggle="modal"
-                                            data-target="#modal-{{dish.name}}">
+                                            data-target="#modal-{{dish.dish_id}}">
                                             Delete
                                         </a>
                              
                                 </td>
+                            </tr>
 
-                                <div class="modal fade" id="modal-{{dish.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                <div class="modal fade" id="modal-{{dish.dish_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true" data-backdrop="false">
                                     <div class="modal-dialog" role="document">
                                         <form method="POST" action="{% url 'RBApp:delete_dish' dish.dish_id %}">
@@ -228,12 +230,13 @@
                                         <!-- href="/delete_menu_type/{{type.type_id}}"? -->
                                         <!-- <a class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#exampleModal">Delete</button> -->
                                         <a class="btn btn-sm btn-outline-primary" data-toggle="modal"
-                                            data-target="#modal-{{type.name}}">
+                                            data-target="#modalType-{{type.type_id}}">
                                             Delete
                                         </a>
                                 </td>
+                            </tr>
 
-                                <div class="modal fade" id="modal-{{type.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                <div class="modal fade" id="modalType-{{type.type_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true" data-backdrop="false">
                                     <div class="modal-dialog" role="document">
                                         <form method="POST" action="{% url 'RBApp:delete_menu_type' type.type_id %}">
