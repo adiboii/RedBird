@@ -6,6 +6,7 @@ from .forms import *
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 class MyIndexView(View):
@@ -24,10 +25,35 @@ class MyIndexView(View):
 class MyLoginView(View):
     def get(self,request):
         return render(request, 'login.html', {})
-        
+
+
 class MySignUpView(View):
-       def get(self,request):
+    def get(self,request):
         return render(request, 'signup.html', {})
+        
+    def post(self, request):
+        form = UserForm(request.POST)
+        uname = request.POST.get("username")
+        pNumber = request.POST.get("phone_number")
+        fname = request.POST.get("first_name")
+        lname = request.POST.get("last_name")
+        pword = request.POST.get("password")
+        strt = request.POST.get("street")
+        cty = request.POST.get("city")
+        cntry = request.POST.get("country")
+        if User.objects.filter(username = uname).exists():
+            messages.error(request, 'Username already exists')
+            return redirect('RBApp:my_signup_view')
+        else:
+            if str.isnumeric(pNumber):
+                form = User(username = uname, password = pword, first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry)
+                form.save()
+                messages.success(request, "User successfully created.")
+                return redirect('RBApp:my_login_view')
+            else:
+                messages.error(request, 'Phone number must contain numbers only')
+                return redirect('RBApp:my_signup_view')
+
 
 class MyAboutView(View):
      def get(self,request):

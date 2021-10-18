@@ -2,7 +2,7 @@
 {% block headerinclude %}
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'RBApp/css/style.css'%}" />
@@ -13,108 +13,112 @@
 
 
 {% block footerinclude %}
-	<script src="{% static 'RBApp/js/bootstrap.min.js'%}"></script>
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<script src="{% static 'RBApp/js/custom-general.js'%}"></script>
+<script src="{% static 'RBApp/js/bootstrap.min.js'%}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{% static 'RBApp/js/custom-general.js'%}"></script>
 {% endblock footerinclude %}
 
 {% block content %}
 
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
-    <button
-    class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="/dashboard">Dashboard</a>
-                </li>
-                <li class="nav-item active"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active"> <a class="nav-link" href="/index">Today's Menu</a>
-                </li>
-                <li class="nav-item"> <a class="nav-link" href="/features">Features</a>
-                </li>
-                <li class="nav-item"> <a class="nav-link" href="/contactus">Contact Us</a>
-                </li>
-                <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
-                </li>
-            </ul> 
-            <a href="/login" class="btn btn-outline-dark">Login</a>
-            <a href="/signup" class="btn btn-outline-primary">Sign Up</a>
-        </div>
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white"> <a class="navbar-brand" href="./index"><img
+      src="{% static 'RBApp/img/Logos/logo.png'%}"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"> <span
+      class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"> <a class="nav-link" href="/dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item"> <a class="nav-link" href="/index">Today's Menu</a>
+      </li>
+      <li class="nav-item"> <a class="nav-link" href="/features">Features</a>
+      </li>
+      <li class="nav-item"> <a class="nav-link" href="/contactus">Contact Us</a>
+      </li>
+      <li class="nav-item"> <a class="nav-link" href="/aboutus">About Us</a>
+      </li>
+    </ul>
+    <a href="/login" class="btn btn-outline-dark">Login</a>
+    <a href="/signup" class="btn btn-outline-primary">Sign Up</a>
+  </div>
 </nav>
 
-    
- 
-        <div class="maincontent pt-0 pb-0">
-            <div class="d-md-flex h-md-100 align-items-center">
-                <div class="col-md-6 p-0 h-md-100">
-                    <div class="block hero2 my-auto" style="background-image:url(https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=932&q=80
+
+{% include 'messages.html' %}
+<div class="maincontent pt-0 pb-0">
+  <div class="d-md-flex h-md-100 align-items-center">
+    <div class="col-md-6 p-0 h-md-100">
+      <div class="block hero2 my-auto" style="background-image:url(https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=932&q=80
                     );">
-                        <div class="container-fluid text-center">
-                             <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000"
-                            data-aos-offset="0">Red Bird</h1>
-                            <p class="lead text-white" data-aos="fade-up" data-aos-duration="1000"
-                            data-aos-delay="300">We are closed for the moment, but we will still deliver food at your place!</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 h-md-100 loginarea">
-                    <div class="d-md-flex align-items-center h-md-100 p-3 justify-content-center">
-                        <form>
-                             <h3 class="mb-4 text-center">Sign Up</h3>
-
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="E-mail" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                placeholder="Password" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                placeholder="Re-enter Password" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                placeholder="First Name" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                placeholder="Last Name" required="">
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                placeholder="Street" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                placeholder="City" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                placeholder="Country" required="">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputName1"
-                                placeholder="Phone Number" required="">
-                            </div>
-                            <button type="submit" class="btn btn-dark btn-round btn-block">Sign Up</button> <small class="d-block mt-4 text-center"><a class="text-gray" href="/login">Already have an account?</a></small>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div class="container-fluid text-center">
+          <h1 class="display-2 text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="0">Red Bird</h1>
+          <p class="lead text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">We are closed for
+            the moment, but we will still deliver food at your place!</p>
         </div>
-        <footer class="block footer1 footer text-center">
-            <p>&copy; Gabutan, Mel Jefferson T. | Reyes, Adrian Paul N. </p>
-            <p>CSIT327 F1-C1 AY 2021 - 2022</p>
-        </footer>
-        <script>
-            AOS.init();
-        </script>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="col-md-6 p-0 h-md-100 loginarea">
+      <div class="d-md-flex align-items-center h-md-100 p-3 justify-content-center">
+        <form method="post">
+          {% csrf_token %}
+          <h3 class="mb-4 text-center">Sign Up</h3>
+
+          <div class="form-group first">
+            <label for="username">Username</label>
+            <input type="username" class="form-control" name="username" placeholder="johnsmith" id="" required="true">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password"
+              required="true">
+          </div>
+          <div class="form-group first">
+            <label for="fname">First Name</label>
+            <input type="text" class="form-control" placeholder="e.g. John" name="first_name" id="fname"
+              required="true">
+          </div>
+          <div class="form-group first">
+            <label for="lname">Last Name</label>
+            <input type="text" class="form-control" placeholder="e.g. Smith" name="last_name" id="lname"
+              required="true">
+          </div>
+          <div class="form-group first">
+            <label for="lname">Phone Number</label>
+            <input type="text" class="form-control" name="phone_number" placeholder="09270389123" id="lname"
+              required="true">
+          </div>
+          <div class="form-group first">
+            <label for="lname">Street</label>
+            <input type="text" class="form-control" name="street" placeholder="F. Roxas Street" id="lname"
+              required="true">
+          </div>
+          <div class="form-group first">
+            <label for="lname">City</label>
+            <input type="text" class="form-control" name="city" placeholder="Manila" id="lname" required="true">
+          </div>
+          <div class="form-group first">
+            <label for="lname">Country</label>
+            <input type="text" class="form-control" name="country" placeholder="Philippines" id="lname" required="true">
+          </div>
+
+      <input type="submit" value="Sign Up" class="btn btn-dark btn-round btn-block" >
+      <small class="d-block mt-4 text-center"><a class="text-gray" href="/login">Already have an account?</a></small>
+    
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<footer class="block footer1 footer text-center">
+  <p>&copy; Gabutan, Mel Jefferson T. | Reyes, Adrian Paul N. </p>
+  <p>CSIT327 F1-C1 AY 2021 - 2022</p>
+</footer>
+<script>
+  AOS.init();
+</script>
 {% endblock content %}
