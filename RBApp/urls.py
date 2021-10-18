@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import logout
 from django.urls import path
 from RBApp import views
 app_name = 'RBApp'
@@ -22,6 +23,7 @@ app_name = 'RBApp'
 urlpatterns = [
     path('index', views.MyIndexView.as_view(), name="my_index_view"),
     path('login', views.MyLoginView.as_view(), name="my_login_view"),
+    path('logout', views.logout_view, name="logout"),
     path('signup', views.MySignUpView.as_view(), name="my_signup_view"),
     path('aboutus', views.MyAboutView.as_view(), name="my_about_view"),
     path('contactus', views.ContactUsView.as_view(), name="contact_us_view"),

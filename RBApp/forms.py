@@ -20,5 +20,10 @@ class MenuTypeForm(forms.ModelForm):
         fields = ('name', 'description')
         
 
+class RegisterForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField()
+      
 
+ 
 

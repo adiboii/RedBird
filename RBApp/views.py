@@ -1,12 +1,11 @@
 from django.core.checks import messages
-from django.http import request
-from django.shortcuts import get_object_or_404, render
 from django.views.generic import View
-from .forms import *
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.views.generic import CreateView, FormView
+from .forms import *
 # Create your views here.
 
 class MyIndexView(View):
@@ -25,7 +24,22 @@ class MyIndexView(View):
 class MyLoginView(View):
     def get(self,request):
         return render(request, 'login.html', {})
+    
+    def post(self, request):
+        uname = request.POST.get("username")
+        pword = request.POST.get("password")
+        user = authenticate(request, username = uname, password = pword)
 
+        if user is not None:
+            login(request, user)
+            return redirect('RBApp:my_index_view')
+        else:
+            messages.error(request, 'User does not exist')
+            return redirect('RBApp:my_login_view')
+
+def logout_view(request):
+    logout(request)
+    return redirect('RBApp:my_login_view')
 
 class MySignUpView(View):
     def get(self,request):
