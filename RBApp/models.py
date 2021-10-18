@@ -60,6 +60,38 @@ class UserManager(BaseUserManager):
         user.admin = is_admin
         user.save()
         return user
+
+    def update_user(self, username, first_name, last_name, phone_number,  street, city, country, password=None, is_staff = False, is_admin = False):
+
+        if not username:
+            raise ValueError('You must provide a username')
+        if not password:
+            raise ValueError('You must provide a password')
+        if not first_name:
+            raise ValueError('You must provide a first name')
+        if not last_name:
+            raise ValueError('You must provide a last name')
+        if not phone_number:
+            raise ValueError('You must provide a phone number')
+        if not street:
+            raise ValueError('You must provide a street')
+        if not city:
+            raise ValueError('You must provide a city')
+        if not country:
+            raise ValueError('You must provide a country')
+
+        user = User.objects.get(username = username)
+        user.set_password(password)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.phone_number = phone_number
+        user.street = street
+        user.city = city
+        user.country = country
+        user.staff = is_staff
+        user.admin = is_admin
+        user.save()
+        return user
     
     def create_staffuser(self, username, first_name, last_name, phone_number,  street, city, country, password=None):
         user = self.create_user(username, first_name, last_name, phone_number,  street, city, country, password=password, is_staff=True)

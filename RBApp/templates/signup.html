@@ -28,8 +28,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
+      {% if user.is_authenticated and user.is_admin %}
       <li class="nav-item"> <a class="nav-link" href="/dashboard">Dashboard</a>
       </li>
+      {% endif %}
       <li class="nav-item"> <a class="nav-link" href="/index">Welcome<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item"> <a class="nav-link" href="/index">Today's Menu</a>
@@ -47,7 +49,7 @@
 </nav>
 
 
-{% include 'messages.html' %}
+
 <div class="maincontent pt-0 pb-0">
   <div class="d-md-flex h-md-100 align-items-center">
     <div class="col-md-6 p-0 h-md-100">
@@ -66,7 +68,7 @@
         <form method="post">
           {% csrf_token %}
           <h3 class="mb-4 text-center">Sign Up</h3>
-
+          {% include 'messages.html' %}
           <div class="form-group first">
             <label for="username">Username</label>
             <input type="username" class="form-control" name="username" placeholder="johnsmith" id="" required="true">

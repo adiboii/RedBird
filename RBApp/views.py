@@ -34,7 +34,7 @@ class MyLoginView(View):
             login(request, user)
             return redirect('RBApp:my_index_view')
         else:
-            messages.error(request, 'User does not exist')
+            messages.error(request, 'Username or Password do not match')
             return redirect('RBApp:my_login_view')
 
 def logout_view(request):
@@ -46,7 +46,6 @@ class MySignUpView(View):
         return render(request, 'signup.html', {})
         
     def post(self, request):
-        form = UserForm(request.POST)
         uname = request.POST.get("username")
         pNumber = request.POST.get("phone_number")
         fname = request.POST.get("first_name")
@@ -60,8 +59,7 @@ class MySignUpView(View):
             return redirect('RBApp:my_signup_view')
         else:
             if str.isnumeric(pNumber):
-                form = User(username = uname, password = pword, first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry)
-                form.save()
+                user = User.objects.create_user(username = uname,  first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry, password = pword)
                 messages.success(request, "User successfully created.")
                 return redirect('RBApp:my_login_view')
             else:
@@ -97,37 +95,35 @@ class MyDashboardView(View):
 
 class UserFormView(View):
         def get(self,request):
-               
                 return render(request, 'forms/user-form.html', {})
         
         def post(self, request):
-                form = UserForm(request.POST)
-                uname = request.POST.get("username")
-                pNumber = request.POST.get("phone_number")
-                fname = request.POST.get("first_name")
-                lname = request.POST.get("last_name")
-                pword = request.POST.get("password")
-                strt = request.POST.get("street")
-                cty = request.POST.get("city")
-                cntry = request.POST.get("country")
-                if User.objects.filter(username = uname).exists():
-                    messages.error(request, 'Username already exists')
+            uname = request.POST.get("username")
+            pNumber = request.POST.get("phone_number")
+            fname = request.POST.get("first_name")
+            lname = request.POST.get("last_name")
+            pword = request.POST.get("password")
+            strt = request.POST.get("street")
+            cty = request.POST.get("city")
+            cntry = request.POST.get("country")
+            if User.objects.filter(username = uname).exists():
+                messages.error(request, 'Username already exists')
+                return redirect('RBApp:my_userform_view')
+            else:
+                if str.isnumeric(pNumber):
+                    user = User.objects.create_user(username = uname,  first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry, password = pword)
+                    messages.success(request, "User successfully created.")
                     return redirect('RBApp:my_dashboard_view')
                 else:
-                    if str.isnumeric(pNumber):
-                        form = User(username = uname, password = pword, first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry)
-                        form.save()
-                        messages.success(request, "User successfully created.")
-                        return redirect('RBApp:my_dashboard_view')
-                    else:
-                        messages.error(request, 'Phone number must contain numbers only')
-                        return redirect('RBApp:my_dashboard_view')
-                
+                    messages.error(request, 'Phone number must contain numbers only')
+                    return redirect('RBApp:my_userform_view')
+        
                     
 
 class DishFormView(View):
     def get(self,request):
                 return render(request, 'forms/dish-form.html', {})
+                
     def post(self, request):
                 form = DishForm(request.POST)
                 nme = request.POST.get("name")
@@ -138,7 +134,7 @@ class DishFormView(View):
                     form = Dish(name = nme, price = prce, description = dscrptn)
                     form.save()
                     messages.success(request, "Dish successfully created.")
-                    return redirect('RBApp:my_dashboard_view')
+                    return redirect('RBApp:my_dishform_view')
                 else:
                     messages.error(request, "Price must be positive numbers only")
                     return redirect('RBApp:my_dashboard_view')
@@ -148,16 +144,21 @@ class DishFormView(View):
 class MenuTypeFormView(View):
     def get(self,request):
                 return render(request, 'forms/menutype-form.html', {})
+
     def post(self, request):
                 form = MenuTypeForm(request.POST)
                 if form.is_valid():
                     nme = request.POST.get("name")
                     dscrptn = request.POST.get("description")
-                    form = MenuType(name = nme, description = dscrptn)
-                    form.save()
-                    #return render(request, 'Dashboard.html', {})
-                    messages.success(request, "Menu Type successfully created.")
-                    return redirect('RBApp:my_dashboard_view')
+                    if MenuType.objects.filter(name = nme).exists():
+                        messages.error(request, 'Menu Type already exists')
+                        return redirect('RBApp:my_menutypeform_view"')
+                    else:
+                        form = MenuType(name = nme, description = dscrptn)
+                        form.save()
+                        #return render(request, 'Dashboard.html', {})
+                        messages.success(request, "Menu Type successfully created.")
+                        return redirect('RBApp:my_dashboard_view')
 
 def delete_user(request, username):
     obj = User.objects.get(username = username)
@@ -189,8 +190,9 @@ def edit_user(request, username):
         cty = request.POST.get("city")
         cntry = request.POST.get("country")
         try:
-            update_user = User.objects.filter(username = uname).update(password = pword, first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry)
-            print(update_user)
+            # update_user = User.objects.filter(username = uname).update(password = pword, first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry)
+            # print(update_user)
+            update_user = User.objects.update_user(username = uname,  first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry, password = pword)
             messages.success(request, 'User has been updated.')
             
 

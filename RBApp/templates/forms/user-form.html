@@ -43,12 +43,13 @@
     <div class="maincontent">
         <div class="container">
             <div class="contents order-2 order-md-1">
-
+              
                 <div class="container">
                   <div class="row align-items-center justify-content-center">
                     <div class="col-md-7 py-5">
                       <h3>Add User</h3>
                       <p class="mb-4">All input fields marked by * are required.</p>
+                      {% include 'messages.html' %}
                       <form method="post" action="#">
                         {% csrf_token %}
                         <div class="row">

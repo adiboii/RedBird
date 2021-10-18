@@ -1,11 +1,20 @@
 from django import forms
 from .models import *
 
+
 class UserForm(forms.ModelForm):
+    def save(self, password, commit=True):
+        user = super(UserForm, self).save(commit=False)
+        user.set_password(password)
+        if commit:
+            user.save()
+        return user
+
     class Meta:
         model = User
         fields  = '__all__'
 
+    
 
 class DishForm(forms.ModelForm):
     class Meta:
@@ -20,10 +29,4 @@ class MenuTypeForm(forms.ModelForm):
         fields = ('name', 'description')
         
 
-class RegisterForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField()
-      
-
- 
 

@@ -56,7 +56,7 @@
     </div>
 </nav>
 
-{% include 'messages.html' %}
+
 <div class="maincontent">
     <div class="container">
         <section id="menu">
@@ -67,7 +67,7 @@
                     <a href="#" class="button" data-target="MenuTypes">Menu Types</a>
 
                 </div>
-
+                {% include 'messages.html' %}
                 <div class="menu menu--is-visible" id="Users" data-aos="fade-up">
                     <form action="{% url 'RBApp:my_userform_view' %}">
                         <input type="submit" value="Create User" class="btn px-5 btn-primary">
