@@ -1,3 +1,4 @@
+from typing import ContextManager
 from django.core.checks import messages
 from django.views.generic import View
 from django.shortcuts import redirect
@@ -65,6 +66,26 @@ class MySignUpView(View):
             else:
                 messages.error(request, 'Phone number must contain numbers only')
                 return redirect('RBApp:my_signup_view')
+
+
+
+class CartView(View):
+    def get(self,request):
+
+        if request.user.is_authenticated:
+            user = request.user.username
+            order, created = Orders.objects.get_or_create(user = user, complete=False)
+            items = order.ordereditems_set.all()
+        else:
+            items = []
+            order = {'get_cart_total': 0, 'get_cart_items': 0}
+
+        context = {
+            'items':items,
+            'order':order,
+            }
+        return render(request, 'cart.html', context)
+
 
 
 class MyAboutView(View):
@@ -274,3 +295,6 @@ def edit_menu_type(request, type_id):
     }
     
     return render(request, template, context)
+
+
+

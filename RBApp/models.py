@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 class Cart(models.Model):
     cart_id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=256)
+    username = models.CharField(max_length=255)
     total_price = models.FloatField()
 
     class meta:
@@ -105,14 +105,14 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    username = models.CharField(max_length=256, primary_key=True)
-    password = models.CharField(max_length=256)
+    username = models.CharField(max_length=255, primary_key=True)
+    password = models.CharField(max_length=255)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=11)
-    street = models.CharField(max_length=256)
-    city = models.CharField(max_length=256)
-    country = models.CharField(max_length=256)
+    street = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
     staff = models.BooleanField(default = False)
     admin = models.BooleanField(default = False)
     objects = UserManager()
@@ -159,10 +159,10 @@ class CartToUser(models.Model):
 
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=256)
-    street = models.CharField(max_length=256)
-    city = models.CharField(max_length=256)
-    country = models.CharField(max_length=256)
+    username = models.CharField(max_length=255)
+    street = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=11)
     total_price = models.FloatField()
 
@@ -189,7 +189,7 @@ class UserToOrder(models.Model):
 
 class Dish(models.Model):
     dish_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=255)
     price = models.FloatField()
     description = models.CharField(max_length=1000)
     image_location = models.CharField(max_length=255, default='')
@@ -209,7 +209,7 @@ class DishToCartItem(models.Model):
 
 class MenuType(models.Model):
     type_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=255)
     description = models.CharField(max_length=1000)
 
     class meta:
@@ -223,3 +223,63 @@ class DishType(models.Model):
 
     class meta:
         db_table = 'DishType'
+
+
+class UserOrder(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    date_ordered = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    complete = models.BooleanField(default=False)
+    transaction_id = models.CharField(max_length=100, null=True)
+
+    class meta:
+        db_table = 'Orders'
+
+
+
+class UserOrderedItems(models.Model):
+    dish = models.ForeignKey(Dish, on_delete=models.SET_NULL, null=True)
+    order = models.ForeignKey(UserOrder, on_delete=models.SET_NULL, null=True)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class meta:
+        db_table = 'OrderedItems'
+
+
+
+class Orders(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    date_ordered = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    complete = models.BooleanField(default=False)
+    transaction_id = models.CharField(max_length=100, null=True)
+
+    @property
+    def get_cart_total(self):
+        orderitems = self.ordereditems_set.all()
+        total = sum([item.get_total for item in orderitems])
+        return total
+
+    @property
+    def get_cart_items(self):
+        orderitems = self.ordereditems_set.all()
+        total = sum([item.quantity for item in orderitems])
+        return total
+
+    class meta:
+        db_table = 'Orders'
+
+
+
+class OrderedItems(models.Model):
+    dish = models.ForeignKey(Dish, on_delete=models.SET_NULL, null=True)
+    order = models.ForeignKey(Orders, on_delete=models.SET_NULL, null=True)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def get_total(self):
+        total = self.dish.price * self.quantity
+        return total
+
+    class meta:
+        db_table = 'OrderedItems'
