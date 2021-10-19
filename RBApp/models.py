@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.db.models.fields import AutoField
 
 # Create your models here.class Cart(models.Model):
 
@@ -186,6 +187,13 @@ class UserToOrder(models.Model):
     class meta:
         db_table = 'UserToOrder'
 
+class MenuType(models.Model):
+    type_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=256)
+    description = models.CharField(max_length=1000)
+
+    class meta:
+        db_table = 'MenuType'
 
 class Dish(models.Model):
     dish_id = models.AutoField(primary_key=True)
@@ -193,6 +201,7 @@ class Dish(models.Model):
     price = models.FloatField()
     description = models.CharField(max_length=1000)
     image_location = models.CharField(max_length=255, default='')
+    type = models.ForeignKey(MenuType, on_delete=models.CASCADE, default=1)
 
     class meta:
         db_table = 'Dish'
@@ -207,19 +216,3 @@ class DishToCartItem(models.Model):
         db_table = 'DishToCartItem'
 
 
-class MenuType(models.Model):
-    type_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=256)
-    description = models.CharField(max_length=1000)
-
-    class meta:
-        db_table = 'MenuType'
-
-
-class DishType(models.Model):
-    seq_id = models.AutoField(primary_key=True)  # counter attribute
-    dish_id = models.ForeignKey(Dish, on_delete=models.CASCADE)
-    type_id = models.ForeignKey(MenuType, on_delete=models.CASCADE)
-
-    class meta:
-        db_table = 'DishType'

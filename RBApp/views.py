@@ -10,15 +10,27 @@ from .forms import *
 
 class MyIndexView(View):
   def get(self,request):
-        users = User.objects.all()
-        dishes = Dish.objects.all()
-        menutype = MenuType.objects.all()
-        context = {
-            'users': users,
-            'dishes': dishes,
-            'menutype': menutype
-        }
-        return render(request, 'index.html', context)
+    users = User.objects.all()
+    dishes = Dish.objects.all()
+    menutype = MenuType.objects.all()
+    originals = Dish.objects.filter(type_id = 1)
+    bundles = Dish.objects.filter(type_id = 2)
+    breakfasts = Dish.objects.filter(type_id = 3)
+    beverages = Dish.objects.filter(type_id = 4)
+    desserts = Dish.objects.filter(type_id = 5)
+    extras = Dish.objects.filter(type_id = 6)
+    context = {
+        'users': users,
+        'dishes': dishes,
+        'menutype': menutype,
+        'originals': originals,
+        'bundles': bundles,
+        'breakfasts': breakfasts,
+        'beverages': beverages,
+        'desserts': desserts,
+        'extras': extras
+    }
+    return render(request, 'index.html', context)
 
 
 class MyLoginView(View):
@@ -46,6 +58,7 @@ class MySignUpView(View):
         return render(request, 'signup.html', {})
         
     def post(self, request):
+        crt = CartForm(request.POST)
         uname = request.POST.get("username")
         pNumber = request.POST.get("phone_number")
         fname = request.POST.get("first_name")
@@ -54,12 +67,15 @@ class MySignUpView(View):
         strt = request.POST.get("street")
         cty = request.POST.get("city")
         cntry = request.POST.get("country")
+        prce = 0.0
         if User.objects.filter(username = uname).exists():
             messages.error(request, 'Username already exists')
             return redirect('RBApp:my_signup_view')
         else:
             if str.isnumeric(pNumber):
                 user = User.objects.create_user(username = uname,  first_name = fname, last_name = lname, phone_number = pNumber, street = strt, city = cty, country = cntry, password = pword)
+                crt = Cart(username = uname, total_price = prce)
+                crt.save()
                 messages.success(request, "User successfully created.")
                 return redirect('RBApp:my_login_view')
             else:
@@ -274,3 +290,6 @@ def edit_menu_type(request, type_id):
     }
     
     return render(request, template, context)
+
+# def add_to_cart(request, dish_id):
+#     return render(request, 'index.html', )
