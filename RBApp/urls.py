@@ -39,4 +39,5 @@ urlpatterns = [
     path('edit_user/<str:username>', views.edit_user, name="edit_user"),
     path('edit_dish/<int:dish_id>', views.edit_dish, name="edit_dish"),
     path('edit_menu_type/<int:type_id>', views.edit_menu_type, name="edit_menu_type"),
+    # path('add_to_cart/<int:dish_id>', views.add_to_cart, name="add_to_cart"),
 ]

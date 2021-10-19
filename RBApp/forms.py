@@ -27,6 +27,11 @@ class MenuTypeForm(forms.ModelForm):
     class Meta:
         model = MenuType
         fields = ('name', 'description')
+
+class CartForm(forms.ModelForm):
+    class Meta:
+        model = Cart
+        fields = ('username', 'total_price')
         
 
 
